@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sneha's Weather Report</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en-us">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- <div id="free-chat">
+        <h2>WhatsUp</h2>
+        <div id="chat-window">
+            <div id="output"></div>
+            <div id="feedback"></div>
+        </div>
+        <input id="handle" type="text" placeholder="Handle">
+        <input id="message" type="text" placeholder="Message">
+        <button id="send">Send</button>
+    </div>-->
+
+    <section>
+        <div class="weather-head">
+            <!--Task 1-->
+            <div class="weather-time">
+                <!--Task 1 | Sec 1-->
+                <div id="city-img">
+                    <img class="first-img" src="img\Icons_for_cities\kolkata.svg">
+                </div>
+                <div>
+                    <div id="error"></div>
+                    <input list="city-options" id="city-input" value="kolkata" name="drop">
+                    <datalist id="city-options">
+                    </datalist>
+                    <br><br>
+                    <div id="timezone">
+                        <div id="time">
+                            <span id="hr">10:</span>
+                            <span id="min">51:</span>
+                            <span id="sec">46</span>
+                        </div>
+                        <div id="ampm-state">
+                            <img id="state" src="img\General_Icons\amState.svg">
+                        </div>
+                    </div>
+
+                    <div id="date">01-April-2020</div>
+                </div>
+            </div>
+
+            <div class="weather-temp">
+                <!--Task 1 | Sec 2-->
+                <div class="spacing-right">
+                    Temp °C
+                    <div class="temp" id="deg-cel">
+                        34 °C
+                    </div>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="spacing-left">
+                    Humidity
+                    <div class="temp" id="humidity">
+                        29%
+                    </div>
+                </div>
+                <div class="spacing spacing-right">
+                    Temp °F
+                    <div class="temp" id="deg-fer">
+                        93.2 °F
+                    </div>
+                </div>
+                <div class="vertical-line spacing"></div>
+                <div class="spacing spacing-left">
+                    Precipitation
+                    <div class="temp" id="precipitation">
+                        68%
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-all">
+                <!--Task 1 | Sec 3-->
+                <div class="weather-all-detail">
+                    <div id="fivehr1">NOW</div>
+                    <div class="weather-all-det-below">|</div>
+                    <div id="fivehrimg1"><img src="img\Weather_Icons\cloudyIcon.svg"></div>
+                    <div class="weather-all-det-below-val" id="fivehrval1">33°C</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div class="weather-all-det-bw">|</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div id="fivehr2">11AM</div>
+                    <div class="weather-all-det-below">|</div>
+                    <div id="fivehrimg2"><img src="img\Weather_Icons\cloudyIcon.svg"></div>
+                    <div class="weather-all-det-below-val" id="fivehrval2">35°C</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div class="weather-all-det-bw">|</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div id="fivehr3">12PM</div>
+                    <div class="weather-all-det-below">|</div>
+                    <div id="fivehrimg3"><img src="img\Weather_Icons\windyIcon.svg"></div>
+                    <div class="weather-all-det-below-val" id="fivehrval3">37°C</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div class="weather-all-det-bw">|</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div id="fivehr4">1PM</div>
+                    <div class="weather-all-det-below">|</div>
+                    <div id="fivehrimg4"><img src="img\Weather_Icons\cloudyIcon.svg"></div>
+                    <div class="weather-all-det-below-val" id="fivehrval4">32°C</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div class="weather-all-det-bw">|</div>
+                </div>
+
+                <div class="weather-all-detail">
+                    <div id="fivehr5">2PM</div>
+                    <div class="weather-all-det-below">|</div>
+                    <div id="fivehrimg5"><img src="img\Weather_Icons\windyIcon.svg"></div>
+                    <div class="weather-all-det-below-val" id="fivehrval5">8°C</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <section>
+
+        <div class="city-info">
+
+
+            <!--Task 2-->
+            <div class="stick">
+                <!--Task 2 | Sec 1-->
+                <div></div>
+                <div></div>
+                <div class="font-style">
+                    Top cities arround world
+                </div>
+                <span class="filter-button">
+                    <button id="btn1" class="spacing-1-img"><img src="img\Weather_Icons\sunnyIcon.svg"></button>
+                    <button id="btn2" class="spacing-1-img"><img src="img\Weather_Icons\snowflakeIcon.svg"></button>
+                    <button id="btn3" class="spacing-1-img"><img src="img\Weather_Icons\cloudyIcon.svg"></button>
+                    <span class="spacing-1">Display Top</span>
+                    <input id="inputnum" type="number" min="3" max="10" value="5">
+                </span>
+            </div>
+
+            <br><br>
+
+            <div class="scroll">
+                <!--Task 2 | Sec 2-->
+                <div id="scroll-bar1" class="scroll-bar">
+                    <a><img src="img\General_Icons\backwardArrow.svg" id="s1"></a>
+                </div>
+                <div id="city-all">
+                    <!--1st container-->
+                    <div class="city-box">
+                        <span class="city-name">
+                            <div class="city-title">
+                                New Delhi
+                            </div>
+                            <div class="city-temp">
+                                <img src="img\Weather_Icons\sunnyIcon.svg" width="25px">
+                                25 °C
+                            </div>
+                        </span>
+
+                        <div class="citycard-position">
+                            <img src="img\Icons_for_cities\brokenhill.svg" class="city-img">
+                            <div class="city-details">
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                53%
+                                <br>
+                                <img src="img\Weather_Icons\windyIcon.svg">
+                                5 Km/hr<br>
+                                <img src="img\Weather_Icons\precipitationIcon.svg">
+                                10%<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--2nd container-->
+                    <div class="city-box">
+                        <span class="city-name">
+                            <div class="city-title">
+                                New Delhi
+                            </div>
+                            <div class="city-temp">
+                                <img src="img\Weather_Icons\sunnyIcon.svg" width="25px">
+                                25 °C
+                            </div>
+                        </span>
+
+                        <div class="citycard-position">
+                            <img src="img\Icons_for_cities\brokenhill.svg" class="city-img">
+                            <div class="city-details">
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                53%
+                                <br>
+                                <img src="img\Weather_Icons\windyIcon.svg">
+                                5 Km/hr<br>
+                                <img src="img\Weather_Icons\precipitationIcon.svg">
+                                10%<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--3rd container-->
+                    <div class="city-box">
+                        <span class="city-name">
+                            <div class="city-title">
+                                New Delhi
+                            </div>
+                            <div class="city-temp">
+                                <img src="img\Weather_Icons\sunnyIcon.svg" width="25px">
+                                25 °C
+                            </div>
+                        </span>
+
+                        <div class="citycard-position">
+                            <img src="img\Icons_for_cities\brokenhill.svg" class="city-img">
+                            <div class="city-details">
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                53%
+                                <br>
+                                <img src="img\Weather_Icons\windyIcon.svg">
+                                5 Km/hr<br>
+                                <img src="img\Weather_Icons\precipitationIcon.svg">
+                                10%<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--4th container-->
+                    <div class="city-box">
+                        <span class="city-name">
+                            <div class="city-title">
+                                New Delhi
+                            </div>
+                            <div class="city-temp">
+                                <img src="img\Weather_Icons\sunnyIcon.svg" width="25px">
+                                25 °C
+                            </div>
+                        </span>
+
+                        <div class="citycard-position">
+                            <img src="img\Icons_for_cities\brokenhill.svg" class="city-img">
+                            <div class="city-details">
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                53%
+                                <br>
+                                <img src="img\Weather_Icons\windyIcon.svg">
+                                5 Km/hr<br>
+                                <img src="img\Weather_Icons\precipitationIcon.svg">
+                                10%<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--5th container-->
+                    <div class="city-box">
+                        <span class="city-name">
+                            <div class="city-title">
+                                New Delhi
+                            </div>
+                            <div class="city-temp">
+                                <img src="img\Weather_Icons\sunnyIcon.svg" width="25px">
+                                25 °C
+                            </div>
+                        </span>
+
+                        <div class="citycard-position">
+                            <img src="img\Icons_for_cities\brokenhill.svg" class="city-img">
+                            <div class="city-details">
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                53%
+                                <br>
+                                <img src="img\Weather_Icons\windyIcon.svg">
+                                5 Km/hr<br>
+                                <img src="img\Weather_Icons\precipitationIcon.svg">
+                                10%<br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="scroll-bar2" class="scroll-bar">
+                    <a><img src="img\General_Icons\forwardArrow.svg" id="s2"></a>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="contin-glance">
+                <!--Task 3-->
+                <div class="stick contin-head">
+                    <!--Task 3 | Sec 1-->
+                    <div class="font-style contin-head-back">
+                        Cities across continents at a Glance
+                    </div>
+                    <span class="contin-control">
+                        <span class="spacing-1 contin-control-option">Continent Name</span>
+                        <span id="spacing-img"><button id="contin-name-sort"><img
+                                    src="img\General_Icons\arrowDown.svg"></span></button>
+                        <span class="spacing-1">Temperature</span>
+                        <span id="spacing-img"><button id="contin-temp-sort"><img
+                                    src="img\General_Icons\arrowUp.svg"></span></button>
+                    </span>
+                </div>
+
+                <br><br>
+
+                <div class="contin-all">
+                    <!--Task 3 | Sec 2-->
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Asia</span>
+                            <span class="country-temp">38 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Delhi, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Africa</span>
+                            <span class="country-temp">38 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Egypt, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Europe</span>
+                            <span class="country-temp">26 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>London, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Asia</span>
+                            <span class="country-temp">37 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Chennai, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Africa</span>
+                            <span class="country-temp">32 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Egypt, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Europe</span>
+                            <span class="country-temp">22 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>London, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Asia</span>
+                            <span class="country-temp">36 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Chennai, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Europe</span>
+                            <span class="country-temp">30 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>London, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">South America</span>
+                            <span class="country-temp">35 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Brazil, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Asia</span>
+                            <span class="country-temp">36 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Delhi, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">Europe</span>
+                            <span class="country-temp">28 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>London, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contin-name">
+                        <div class="contin-deg">
+                            <span class="country-name">South America</span>
+                            <span class="country-temp">32 °C</span>
+                        </div>
+
+                        <div class="contin-humidity">
+                            <div>Brazil, 10:10 AM</div>
+                            <div>
+                                <img src="img\Weather_Icons\humidityIcon.svg">
+                                <span>53%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="chat-main" id="myForm">
+                <div class="user-name">
+                    <span><i class="far fa-user"></i></span>
+                    <input type="text" id="name-input" value="Type Your Name..." maxlength="20" />
+                </div>
+
+                <ul id="message-container"></ul>
+                <div id="message">
+                    <form>
+                        <input type="text" name="message" id="message-input" />
+                        <button type="submit" class="send-button"><i class="far fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <button class="chat-button" onclick="countOfClick()">
+                <img src="img\General_Icons\chatIcon.svg">
+            </button>
+
+        </div>
+
+    </section>
+    <script>
+        var count = 0;
+        function countOfClick() {
+            count++;
+            if (count % 2 != 0) {
+                openForm();
+            }
+            else {
+                closeForm();
+            }
+        }
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+
+</html>
